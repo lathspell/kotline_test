@@ -1,7 +1,7 @@
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class ByteLiteralTest {
+class ByteLiteralsTest {
 
     @Test
     fun testByteLiteral() {
