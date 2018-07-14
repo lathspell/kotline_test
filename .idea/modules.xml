@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/kotlin_jackson_test/kotlin_jackson_test.iml" filepath="$PROJECT_DIR$/kotlin_jackson_test/kotlin_jackson_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/kotlin_test.iml" filepath="$PROJECT_DIR$/kotlin_test.iml" />
     </modules>
   </component>

@@ -6,7 +6,11 @@
 
     <groupId>de.lathspell.test</groupId>
     <artifactId>kotlin_test</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>kotlin_jackson_test</module>
+    </modules>
 
     <properties>
         <kotlin.version>1.2.51</kotlin.version>
