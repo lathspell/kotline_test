@@ -59,8 +59,8 @@
                     </goals>
                     <configuration>
                         <sourceDirs>
-                            <source>src/main/java</source>
-                            <source>src/main/kotlin</source>
+                            <source>src/ex1.main/java</source>
+                            <source>src/ex1.main/kotlin</source>
                         </sourceDirs>
                     </configuration>
                 </execution>

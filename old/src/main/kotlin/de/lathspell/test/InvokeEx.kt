@@ -1,4 +1,4 @@
-package de.lathspell.test
+package main.kotlin.de.lathspell.test
 
 class InvokeEx {
 

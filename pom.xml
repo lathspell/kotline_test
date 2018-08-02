@@ -13,6 +13,7 @@
         <module>old</module>
         <module>jackson</module>
         <module>misc</module>
+        <module>udemy_greencroft</module>
     </modules>
 
     <properties>

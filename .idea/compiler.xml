@@ -7,18 +7,20 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jackson" />
-        <module name="misc" />
+        <module name="lang" />
         <module name="misdc" />
         <module name="old" />
+        <module name="udemy_greencroft" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="jackson" target="1.5" />
       <module name="kotlin_test" target="1.5" />
-      <module name="misc" target="1.5" />
+      <module name="lang" target="1.5" />
       <module name="misdc" target="1.5" />
       <module name="old" target="1.8" />
       <module name="parent" target="1.5" />
+      <module name="udemy_greencroft" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
