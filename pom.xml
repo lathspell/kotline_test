@@ -12,8 +12,9 @@
     <modules>
         <module>old</module>
         <module>jackson</module>
-        <module>misc</module>
+        <module>lang</module>
         <module>udemy_greencroft</module>
+        <module>assertj</module>
     </modules>
 
     <properties>
