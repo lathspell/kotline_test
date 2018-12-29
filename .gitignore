@@ -1,6 +1,13 @@
+# IntelliJ
 .idea
+*/.idea
+*/.iml
+*.iml
+
+# Maven
 target
 */target
-*/.idea
-*/.imlgit s
-*.iml
+
+# Gradle
+*/.gradle/
+*/build
