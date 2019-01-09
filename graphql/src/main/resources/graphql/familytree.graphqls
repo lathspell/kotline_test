@@ -1,0 +1,27 @@
+
+
+type Query {
+    # The API Version
+    version: String!
+}
+
+type Person {
+    id: ID!
+    name: String!
+    relationships(type: String): [Relationship]!
+}
+
+extend type Query {
+    getPersonById(id: ID): Person
+}
+
+
+type Relationship {
+    from: Person!
+    to: Person!
+    relationship: String!
+}
+
+type Mutation {
+    createPerson(name: String!): Person!
+}
