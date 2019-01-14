@@ -1,0 +1,33 @@
+query firstoperation {
+  getCustomerByName(name: "aaa") {
+    name
+    contact {
+      name
+    }
+  }
+}
+
+query secondoperation {
+  getContactByName(name: "Alfred") {
+    id
+    name
+  }
+}
+
+mutation createContact {
+  createContact(name: "Conny", email: "conny@example.com") {
+    id
+    name
+    email
+  }
+}
+
+mutation createCustomerWithContactRef {
+  createCustomer(name: "Custo2", contactName: "Alfred") {
+    id
+    name
+    contact {
+      email
+    }
+  }
+}

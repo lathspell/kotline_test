@@ -1,0 +1,31 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+  contacts : [Contact]!
+  customers : [Customer]!
+  getContactByName(name: String!): Contact!
+  getCustomerByName(name: String!): Customer!
+}
+
+type Mutation {
+   createContact(name: String!, email: String!): Contact
+   createCustomer(name: String!, contactName:String!): Customer
+}
+
+# A customer
+type Customer {
+    id: ID!
+    name: String!
+    contact: Contact!
+}
+
+# A contact person from a customer
+ type Contact {
+    id: ID!
+    name: String!
+    email: String!
+    # FIXME: createdAt: DateTime
+}
