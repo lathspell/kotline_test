@@ -61,6 +61,19 @@
         </dependency>
 
         <dependency>
+            <!-- Use this instead JDK HTTP Client for Spring RestTemplate so that we can enable wire logging -->
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+            <version>4.1.4</version>
+        </dependency>
+        <dependency>
+            <!-- SpringBoot sees and uses this so that we get colorful output. -->
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+        <dependency>
             <!-- GraphQL (Springboot integration) -->
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-spring-boot-starter</artifactId>

@@ -1,7 +1,7 @@
 Kotlin GraphQL Demo
 ===================
 
-Start and go to http://localhost:8080/graphiql/ (note the "i"!)
+Start `GraphqlApplication` and go to `http://localhost:8080/graphiql/` (note the "i"!)
 
 GraphQL
 =======
