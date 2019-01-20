@@ -63,12 +63,15 @@ Links
 GraphQL Foundation
 * https://graphql.org/learn/ (Howto)
 
-Java Server and Client implementation
+Java Server implementation
 * https://www.graphql-java.com/
 * https://www.graphql-java.com/documentation/master/
 
 Kotlin Server implementation
 * https://github.com/pgutkowski/KGraphQL
+
+Kotlin Client implementation (Apache HTTP Client and Jackson ObjectMapper; very small wrapper)
+* https://github.com/Cox-Automotive/graphql-java-client
 
 Blog posts
 * https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/
