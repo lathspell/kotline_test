@@ -74,19 +74,19 @@
         </dependency>
 
         <dependency>
-            <!-- GraphQL (Springboot integration) -->
+            <!-- GraphQL Server (Springboot integration) -->
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-spring-boot-starter</artifactId>
             <version>5.0.2</version>
         </dependency>
         <dependency>
-            <!-- GraphQL (Web GUI) -->
+            <!-- GraphQL Server (Web GUI) -->
             <groupId>com.graphql-java</groupId>
             <artifactId>graphiql-spring-boot-starter</artifactId>
             <version>5.0.2</version>
         </dependency>
         <dependency>
-            <!-- GraphQL (Schema-first parser für .graphqls files) -->
+            <!-- GraphQL Server (Schema-first parser für .graphqls files) -->
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-java-tools</artifactId>
             <version>5.2.4</version>
@@ -143,7 +143,6 @@
                         <plugin>spring</plugin>
                     </compilerPlugins>
                 </configuration>
-
             </plugin>
         </plugins>
     </build>

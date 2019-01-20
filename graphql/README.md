@@ -43,9 +43,19 @@ Features
 - Mutations that act like Queries but can change things
 - Meta-Fields to e.g. get the Type of a parameter with the returned result
 
+Caveats
+-------
+
+GraphQL is designed to only only the requested fields of the result objects. That means that just like with plain SQL
+(as opposed to ORMs) it is often impossible to deserialize a GraphQL response to model objects.
+Using the result like a multidimensional map though takes away a lot of the type safe benefits. Some client libraries
+use the GraphQL Schema (or an "introspection" result) and pre-defined queries to generate client source code. That's
+more type-safe but less flexible.   
+
 Examples
 --------
 
+See examples.graphql
 
 Links
 =====
@@ -53,11 +63,11 @@ Links
 GraphQL Foundation
 * https://graphql.org/learn/ (Howto)
 
-Java implementation
+Java Server and Client implementation
 * https://www.graphql-java.com/
 * https://www.graphql-java.com/documentation/master/
 
-Kotlin implementation
+Kotlin Server implementation
 * https://github.com/pgutkowski/KGraphQL
 
 Blog posts
