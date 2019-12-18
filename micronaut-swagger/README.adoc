@@ -1,0 +1,28 @@
+= micronaut-swagger =
+
+Example for Micronaut with OpenAPI/Swagger API definition.
+
+== Build ==
+
+The OpenAPI Yaml definition as well as the Web GUIs are generated using the Kotlin pre-processor "kapt".
+
+    ./gradlew build
+
+TODO::
+Generation of the Web GUIs should be configurable but I could not get it working!
+See https://github.com/micronaut-projects/micronaut-openapi/issues/108
+
+== Run ==
+
+Run with: `./gradle run`
+
+* API definiton at http://localhost:8080/swagger/micronaut-swagger-0.0.yml
+* Web GUI at:
+** http://localhost:8080/swagger/views/swagger-ui/
+** http://localhost:8080/swagger/views/rapidoc/
+** http://localhost:8080/swagger/views/redoc/
+
+== Links ==
+
+* https://micronaut-projects.github.io/micronaut-openapi/latest/guide/index.html
+
