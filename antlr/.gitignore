@@ -1,0 +1,8 @@
+src/**/*.tokens
+
+### Gradle ###
+/build/
+/.gradle/
+
+### IDE ###
+/.idea/
