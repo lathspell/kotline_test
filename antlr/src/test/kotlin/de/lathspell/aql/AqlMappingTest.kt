@@ -29,7 +29,7 @@ class AqlMappingTest {
 
     private fun buildAst(code: String): Expression {
         val parser = buildParser(code)
-        val rootExpression = parser.aqlStatement().expression()
+        val rootExpression = parser.root().expression()
         return rootExpression.toAst()
     }
 

@@ -4,7 +4,7 @@ import AqlParser.*
 
 object AqlAstMapper {
 
-    fun AqlStatementContext.toAst(): Expression = expression().toAst()
+    fun RootContext.toAst(): Expression = expression().toAst()
 
     fun ExpressionContext.toAst(): Expression = when (this) {
         is NotOperationContext -> NotExpression(other = other.toAst())

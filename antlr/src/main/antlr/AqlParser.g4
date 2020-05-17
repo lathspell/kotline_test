@@ -2,7 +2,7 @@ parser grammar AqlParser;
 
 options { tokenVocab=AqlLexer; }
 
-aqlStatement : expression EOF ;
+root : expression EOF ;
 
 expressions : expression (COMMA expression)* ;
 

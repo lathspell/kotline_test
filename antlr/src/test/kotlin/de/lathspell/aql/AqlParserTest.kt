@@ -15,7 +15,7 @@ class AqlParserTest {
     fun `eq operation`() {
         val given = "eq(foo,4)"
         val expected = """
-  AqlStatement
+  Root
     EqOperation
       T[eq]
       T[(]
@@ -30,7 +30,7 @@ class AqlParserTest {
         assertThat(buildParseTree(given)).isEqualTo(expected)
     }
 
-    private fun buildParseTree(code: String): String = ParseTree.toParseTree(buildParser(code).aqlStatement()).multiLineString()
+    private fun buildParseTree(code: String): String = ParseTree.toParseTree(buildParser(code).root()).multiLineString()
     private fun buildParser(code: String): AqlParser = AqlParser(buildTokenStream(code))
     private fun buildTokenStream(code: String): TokenStream = CommonTokenStream(buildLexer(code))
     private fun buildLexer(code: String): AqlLexer = AqlLexer(CharStreams.fromString(code))
