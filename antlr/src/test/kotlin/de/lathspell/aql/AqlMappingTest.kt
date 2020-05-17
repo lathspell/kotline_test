@@ -15,7 +15,7 @@ class AqlMappingTest {
     fun `map eq operation`() {
         val code = "eq(foo,4)"
         val expected = EqExpression(StrLiteral("foo"), IntLiteral("4"))
-        val actual = AqlParserFacade.parse(code).root!!
+        val actual = buildAst(code)
         assertThat(actual).isEqualTo(expected)
     }
 
