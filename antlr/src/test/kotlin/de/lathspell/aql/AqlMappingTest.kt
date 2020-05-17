@@ -19,11 +19,20 @@ class AqlMappingTest {
         assertThat(actual).isEqualTo(expected)
     }
 
+    @Test
+    fun `map and eq operation`() {
+        val code = "and(eq(foo,4),lt(bar, 3))"
+        val expected = AndExpression(listOf(EqExpression(StrLiteral("foo"), IntLiteral("4")), LtExpression(StrLiteral("bar"), IntLiteral("3"))))
+        val actual = buildAst(code)
+        assertThat(actual).isEqualTo(expected)
+    }
+
     private fun buildAst(code: String): Expression {
         val parser = buildParser(code)
         val rootExpression = parser.aqlStatement().expression()
         return rootExpression.toAst()
     }
+
     private fun buildParser(code: String): AqlParser = AqlParser(buildTokenStream(code))
     private fun buildTokenStream(code: String): TokenStream = CommonTokenStream(buildLexer(code))
     private fun buildLexer(code: String): AqlLexer = AqlLexer(CharStreams.fromString(code))
