@@ -15,7 +15,7 @@ class AqlLexerTest {
 
     @Test
     fun `or operation`() {
-        assertEquals(listOf("OR", "LPAREN", "EQ", "LPAREN", "STRLIT", "COMMA", "INTLIT", "RPAREN", "COMMA", "EQ", "LPAREN", "STRLITeq", "COMMA", "INTLIT", "RPAREN", "RPAREN"),
+        assertEquals(listOf("OR", "LPAREN", "EQ", "LPAREN", "STRLIT", "COMMA", "INTLIT", "RPAREN", "COMMA", "EQ", "LPAREN", "STRLIT", "COMMA", "INTLIT", "RPAREN", "RPAREN"),
                 tokens(lexerForCode("or(eq(foo, 4),eq(bar, 5))")))
     }
 
