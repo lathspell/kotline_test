@@ -27,6 +27,17 @@ class AqlMappingTest {
         assertThat(actual).isEqualTo(expected)
     }
 
+    @Test
+    fun `map or in gt operation`() {
+        val code = "or(in(foo,4),gt(bar, 3),eq(baz,5))"
+        val expected = OrExpression(listOf(
+                InExpression(StrLiteral("foo"), IntLiteral("4")),
+                GtExpression(StrLiteral("bar"), IntLiteral("3")),
+                EqExpression(StrLiteral("baz"), IntLiteral("5"))))
+        val actual = buildAst(code)
+        assertThat(actual).isEqualTo(expected)
+    }
+
     private fun buildAst(code: String): Expression {
         val parser = buildParser(code)
         val rootExpression = parser.root().expression()

@@ -10,6 +10,7 @@ data class EqExpression(val left: Expression, val right: Expression) : Expressio
 data class NeExpression(val left: Expression, val right: Expression) : Expression
 data class LtExpression(val left: Expression, val right: Expression) : Expression
 data class GtExpression(val left: Expression, val right: Expression) : Expression
+data class InExpression(val left: Expression, val right: Expression) : Expression
 
 data class NotExpression(val other: Expression): Expression
 data class AndExpression(val expressions: List<Expression>) : Expression

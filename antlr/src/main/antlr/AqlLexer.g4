@@ -11,6 +11,7 @@ NE                  : 'ne' ;
 LT                  : 'lt' ;
 GT                  : 'gt' ;
 OR                  : 'or' ;
+IN                  : 'in' ;
 AND                 : 'and' ;
 NOT                 : 'not' ;
 

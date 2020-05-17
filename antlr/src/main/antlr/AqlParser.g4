@@ -11,6 +11,7 @@ expression : operator=NOT LPAREN other=expression RPAREN                        
             | operator=NE LPAREN left=expression COMMA right=expression RPAREN  # neOperation
             | operator=LT LPAREN left=expression COMMA right=expression RPAREN  # ltOperation
             | operator=GT LPAREN left=expression COMMA right=expression RPAREN  # gtOperation
+            | operator=IN LPAREN left=expression COMMA right=expression RPAREN  # inOperation
             | operator=AND LPAREN expressions RPAREN                            # andOperation
             | operator=OR  LPAREN expressions RPAREN                            # orOperation
             | INTLIT                                                            # intLiteral

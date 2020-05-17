@@ -12,6 +12,7 @@ object AqlAstMapper {
         is NeOperationContext -> NeExpression(left = left.toAst(), right = right.toAst())
         is LtOperationContext -> LtExpression(left = left.toAst(), right = right.toAst())
         is GtOperationContext -> GtExpression(left = left.toAst(), right = right.toAst())
+        is InOperationContext -> InExpression(left = left.toAst(), right = right.toAst())
         is AndOperationContext -> AndExpression(expressions().expression().map { it.toAst() })
         is OrOperationContext -> OrExpression(expressions().expression().map { it.toAst() })
         is IntLiteralContext -> IntLiteral(text)
