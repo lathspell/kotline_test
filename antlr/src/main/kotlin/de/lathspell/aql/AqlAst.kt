@@ -2,19 +2,19 @@ package de.lathspell.aql
 
 interface Node
 
-interface Expression: Node
+interface AqlExpression: Node
 
 // Expressions
 
-data class EqExpression(val left: Expression, val right: Expression) : Expression
-data class NeExpression(val left: Expression, val right: Expression) : Expression
-data class LtExpression(val left: Expression, val right: Expression) : Expression
-data class GtExpression(val left: Expression, val right: Expression) : Expression
-data class InExpression(val left: Expression, val right: Expression) : Expression
+data class EqAqlExpression(val left: AqlExpression, val right: AqlExpression) : AqlExpression
+data class NeAqlExpression(val left: AqlExpression, val right: AqlExpression) : AqlExpression
+data class LtAqlExpression(val left: AqlExpression, val right: AqlExpression) : AqlExpression
+data class GtAqlExpression(val left: AqlExpression, val right: AqlExpression) : AqlExpression
+data class InAqlExpression(val left: AqlExpression, val right: AqlExpression) : AqlExpression
 
-data class NotExpression(val other: Expression): Expression
-data class AndExpression(val expressions: List<Expression>) : Expression
-data class OrExpression(val expressions: List<Expression>) : Expression
+data class NotAqlExpression(val other: AqlExpression): AqlExpression
+data class AndAqlExpression(val aqlExpressions: List<AqlExpression>) : AqlExpression
+data class OrAqlExpression(val aqlExpressions: List<AqlExpression>) : AqlExpression
 
-data class IntLiteral(val value: String) : Expression
-data class StrLiteral(val value: String) : Expression
+data class IntLiteral(val value: String) : AqlExpression
+data class StrLiteral(val value: String) : AqlExpression

@@ -14,7 +14,7 @@ class AqlMappingTest {
     @Test
     fun `map eq operation`() {
         val code = "eq(foo,4)"
-        val expected = EqExpression(StrLiteral("foo"), IntLiteral("4"))
+        val expected = EqAqlExpression(StrLiteral("foo"), IntLiteral("4"))
         val actual = buildAst(code)
         assertThat(actual).isEqualTo(expected)
     }
@@ -22,7 +22,7 @@ class AqlMappingTest {
     @Test
     fun `map and eq operation`() {
         val code = "and(eq(foo,4),lt(bar, 3))"
-        val expected = AndExpression(listOf(EqExpression(StrLiteral("foo"), IntLiteral("4")), LtExpression(StrLiteral("bar"), IntLiteral("3"))))
+        val expected = AndAqlExpression(listOf(EqAqlExpression(StrLiteral("foo"), IntLiteral("4")), LtAqlExpression(StrLiteral("bar"), IntLiteral("3"))))
         val actual = buildAst(code)
         assertThat(actual).isEqualTo(expected)
     }
@@ -30,15 +30,15 @@ class AqlMappingTest {
     @Test
     fun `map or in gt operation`() {
         val code = "or(in(foo,4),gt(bar, 3),eq(baz,5))"
-        val expected = OrExpression(listOf(
-                InExpression(StrLiteral("foo"), IntLiteral("4")),
-                GtExpression(StrLiteral("bar"), IntLiteral("3")),
-                EqExpression(StrLiteral("baz"), IntLiteral("5"))))
+        val expected = OrAqlExpression(listOf(
+                InAqlExpression(StrLiteral("foo"), IntLiteral("4")),
+                GtAqlExpression(StrLiteral("bar"), IntLiteral("3")),
+                EqAqlExpression(StrLiteral("baz"), IntLiteral("5"))))
         val actual = buildAst(code)
         assertThat(actual).isEqualTo(expected)
     }
 
-    private fun buildAst(code: String): Expression {
+    private fun buildAst(code: String): AqlExpression {
         val parser = buildParser(code)
         val rootExpression = parser.root().expression()
         return rootExpression.toAst()

@@ -1,0 +1,18 @@
+
+
+spring:
+  jpa:
+    show-sql: false # "org.hibernate.SQL" is better as this one is using stdout not slf4j!
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    root: DEBUG
+    com.zaxxer.hikari: INFO
+    de.lathspell: DEBUG
+    org.hibernate: INFO
+    org.hibernate.SQL: DEBUG # prepared statements
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE #  variable bindings for prepared statements
+    org.springframework: INFO
