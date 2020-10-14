@@ -27,6 +27,9 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
 
+    // JSON Patch
+    implementation("com.flipkart.zjsonpatch:zjsonpatch:0.4.11")
+
     // Test
     testImplementation(platform("org.junit:junit-bom:5.7.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
@@ -45,9 +48,8 @@ tasks.withType<Test> {
     outputs.upToDateWhen { false } // Tests immer ausführen!
     testLogging {
         events(SKIPPED, STARTED, PASSED, FAILED)
+        exceptionFormat = TestExceptionFormat.FULL
+        showStandardStreams = true // print all stdout/stderr output to console
+        minGranularity = 0 // show class and method names
     }
-    testLogging.exceptionFormat = TestExceptionFormat.FULL
-    testLogging.showStandardStreams = true // print all stdout/stderr output to console
-    testLogging.minGranularity = 0 // show class and method names
-
 }
