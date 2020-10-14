@@ -1,8 +1,8 @@
 package de.lathspell.test
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import kotlin.test.Test
-import kotlin.test.assertEquals
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class KotlinJacksonTest {
 

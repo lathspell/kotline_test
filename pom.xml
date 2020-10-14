@@ -12,7 +12,6 @@
     <modules>
         <module>assertj</module>
         <module>graphql</module>
-        <module>jackson</module>
         <module>lang</module>
         <module>old</module>
         <module>udemy_greencroft</module>

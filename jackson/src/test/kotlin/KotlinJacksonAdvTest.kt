@@ -5,13 +5,14 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.exc.InvalidDefinitionException
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.kotlin.readValue
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
+import org.junit.jupiter.api.Test
 import java.util.*
-import kotlin.test.Test
-import kotlin.test.assertEquals
 
 /**
  * Testing the KotlinModule extension.
@@ -32,8 +33,6 @@ class KotlinJacksonAdvTest {
         lateinit var createdAt: Date
 
         lateinit var socks: Pair<String, String>
-
-        val favNums = IntRange(3, 5)
     }
 
     val p = Person("Tim", 1955).apply {
@@ -49,13 +48,13 @@ class KotlinJacksonAdvTest {
         assertEquals(p, p1)
     }
 
-    @Test(expected = InvalidDefinitionException::class)
+    @Test
     fun testWithoutKotlinModule() {
         val omPlain = ObjectMapper().registerModule(JavaTimeModule())
         val json = omPlain.writeValueAsString(p)
-        val p1: Person = omPlain.readValue(json)
-        assertEquals(p, p1)
+        assertThrows(UnrecognizedPropertyException::class.java) {
+            omPlain.readValue(json)
+        }
     }
-
 
 }
