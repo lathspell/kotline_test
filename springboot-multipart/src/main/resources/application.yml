@@ -1,0 +1,4 @@
+logging:
+  level:
+    reactor.netty: info
+    netty.http.client: info
