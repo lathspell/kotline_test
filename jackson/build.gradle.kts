@@ -1,11 +1,9 @@
-
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "1.4.10"
-    kotlin("jvm") version kotlinVersion
+    kotlin("jvm") version "1.4.30"
 
     id("com.github.ben-manes.versions") version "0.33.0"        // https://github.com/ben-manes/gradle-versions-plugin for ":dependencyUpdates"
 }
@@ -14,13 +12,12 @@ group = "de.lathspell"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
     // Kotlin
     implementation(kotlin("reflect"))
-    implementation(kotlin("stdlib-jdk8"))
 
     // JSON
     val jacksonVersion = "2.9.6"
