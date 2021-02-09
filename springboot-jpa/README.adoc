@@ -1,0 +1,3 @@
+= SpringBoot JPA demo
+
+Little demo of transactions using Spring's `@Transactional` that span several SQL statements.
