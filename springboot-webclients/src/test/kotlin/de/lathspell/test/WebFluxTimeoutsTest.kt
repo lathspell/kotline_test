@@ -15,18 +15,21 @@ import org.springframework.web.reactive.function.client.bodyToMono
 import reactor.netty.Connection
 import reactor.netty.http.client.HttpClient
 
+/** Advanced configuration of the WebClient e.g. for timeouts. */
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 class WebFluxTimeoutsTest(@LocalServerPort port: Int) {
 
     private val baseUrl = "http://localhost:$port"
-    private val connectTimeputSecs = 1000
+    private val connectTimeoutSecs = 1000
     private val readTimeoutSecs = 2000
     private val writeTimeoutSecs = 3000
 
     @Test
     fun `webclient with timeout`() {
         val client = myWebClient()
-        val actual = client.get().uri("/hello-world/txt").retrieve().bodyToMono<String>().block()!!
+        val actual = client.get().uri("/hello-world/txt").retrieve()
+            .bodyToMono<String>()
+            .block()!!
         assertThat(actual).isEqualTo("Hello World")
     }
 
@@ -37,10 +40,9 @@ class WebFluxTimeoutsTest(@LocalServerPort port: Int) {
         .build()
 
     private fun myHttpClient(): HttpClient = HttpClient.create()
-        .option(CONNECT_TIMEOUT_MILLIS, connectTimeputSecs * 1000)
+        .option(CONNECT_TIMEOUT_MILLIS, connectTimeoutSecs * 1000)
         .doOnConnected { c: Connection ->
             c.addHandlerLast(ReadTimeoutHandler(readTimeoutSecs))
             c.addHandlerLast(WriteTimeoutHandler(writeTimeoutSecs))
         }
-
 }
