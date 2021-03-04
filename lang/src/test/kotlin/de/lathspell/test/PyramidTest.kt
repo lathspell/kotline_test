@@ -1,7 +1,7 @@
 package de.lathspell.test
 
 import org.assertj.core.api.Assertions.assertThat
-import kotlin.test.Test
+import org.junit.jupiter.api.Test
 
 class PyramidTest {
 
@@ -14,6 +14,5 @@ class PyramidTest {
         assertThat(pyramid(2)).contains(" *", "***");
         assertThat(pyramid(3)).contains("  *", " ***", "*****")
     }
-
 
 }
