@@ -1,0 +1,12 @@
+= Trying "Spring Data JDBC"
+
+== Pros
+
+* Less hidden magic like caching, dirty tracking etc.
+
+== Cons
+
+* Saving new entries with pre-filled `@Id` attributes like e.g. UUIDs does not work out-of-the-box, they are considered existing and therefore `UPDATE` is used. To make it work, either
+** an `Persistable.isNew()` method has to be implemented which couples the entity to the persistence layer
+** the Id field has to be nullable and filled by the database engine. (https://docs.spring.io/spring-data/jdbc/docs/2.1.6/reference/html/#jdbc.entity-persistence.state-detection-strategies)
+** the `WithInsert` hack has to be used as shown in https://github.com/spring-projects/spring-data-examples/pull/441
