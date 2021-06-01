@@ -1,12 +1,11 @@
-package de.lathspell.test
+package de.lathspell.test.webflux
 
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.slf4j.LoggerFactory
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.boot.web.server.LocalServerPort
-import org.springframework.http.MediaType.TEXT_PLAIN
+import org.springframework.http.MediaType
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.toEntity
 import reactor.core.publisher.Flux
@@ -14,7 +13,7 @@ import reactor.core.scheduler.Schedulers
 import reactor.kotlin.core.publisher.toFlux
 
 /** Using WebClient for simple non-blocking requests. */
-@SpringBootTest(webEnvironment = RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class WebFluxNonblockingTest(@LocalServerPort port: Int) {
 
     private val log = LoggerFactory.getLogger(WebFluxNonblockingTest::class.java)
@@ -31,7 +30,7 @@ class WebFluxNonblockingTest(@LocalServerPort port: Int) {
         val responses = Flux.fromIterable(1..num)
             .flatMap { i ->
                 log.info("Requesting $i")
-                client.get().uri("/slow?i=$i").accept(TEXT_PLAIN).retrieve()
+                client.get().uri("/slow?i=$i").accept(MediaType.TEXT_PLAIN).retrieve()
                     .toEntity<String>()
             }
             .parallel(10, 10) // prepares for parallelism and enables .runOn()
@@ -45,7 +44,7 @@ class WebFluxNonblockingTest(@LocalServerPort port: Int) {
 
         // collect data (have to block here)
         log.info("Collecting responses")
-        assertThat(responses).hasSize(num)
-        assertThat(responses).allMatch { it.body!! == "slow" }
+        Assertions.assertThat(responses).hasSize(num)
+        Assertions.assertThat(responses).allMatch { it.body!! == "slow" }
     }
 }

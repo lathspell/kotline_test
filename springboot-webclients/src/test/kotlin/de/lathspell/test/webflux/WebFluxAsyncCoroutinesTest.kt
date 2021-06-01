@@ -1,10 +1,10 @@
-package de.lathspell.test
+package de.lathspell.test.webflux
 
 import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.slf4j.LoggerFactory
 import org.springframework.boot.test.context.SpringBootTest
@@ -13,7 +13,6 @@ import org.springframework.http.MediaType
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.awaitBody
 import org.springframework.web.reactive.function.client.bodyToMono
-import org.springframework.web.reactive.function.client.toEntity
 import java.util.concurrent.Executors
 
 /** Mixing WebClient's WebFlux and Kotlin's Coroutines. */
@@ -32,7 +31,7 @@ class WebFluxAsyncCoroutinesTest(@LocalServerPort port: Int) {
                     .awaitBody<String>()
             }
 
-            assertThat(actual.await()).isEqualTo("Hello World")
+            Assertions.assertThat(actual.await()).isEqualTo("Hello World")
         }
     }
 
@@ -56,8 +55,8 @@ class WebFluxAsyncCoroutinesTest(@LocalServerPort port: Int) {
             val actual = responses.map { it.await() }
 
             log.info("Checking")
-            assertThat(actual).hasSize(10)
-            assertThat(actual).allMatch { it == "slow" }
+            Assertions.assertThat(actual).hasSize(10)
+            Assertions.assertThat(actual).allMatch { it == "slow" }
         }
     }
 
@@ -68,7 +67,7 @@ class WebFluxAsyncCoroutinesTest(@LocalServerPort port: Int) {
         runBlocking {
             launch {
                 val actual = txtUsingAwaitBody()
-                assertThat(actual).isEqualTo("Hello World")
+                Assertions.assertThat(actual).isEqualTo("Hello World")
             }
         }
     }
