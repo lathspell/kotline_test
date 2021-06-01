@@ -1,0 +1,16 @@
+= Webclients Comparison
+
+== Ktor Client
+
+The Ktor client is a facade for different backends like Apache, OkHttp and JDK.
+
+* + different backends and backend specific engine config possible
+* + many plugins for easy authentication, logging or timeouts
+* - complex configuration looks a bit messy
+* + simple requests are very slim
+* - response code validation is strange
+
+== OkHttp Client
+
+* - No JSON integration, ObjectMapper has to be used
+
